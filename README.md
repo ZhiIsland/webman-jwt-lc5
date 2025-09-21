@@ -72,7 +72,7 @@ openssl rsa -in admin-private.pem -pubout -out admin-public.pem
 
 3) 登录发放
 ```php
-use Zh\Jwt\JwtManager;
+use Zhiisland\WebmanJwtLc5\JwtManager;
 
 $jwt = new JwtManager('frontend');
 $tokens = $jwt->issueTokens('10001', ['scopes' => ['read','write'], 'client' => 'WEB'], 'web-device-1');
@@ -81,14 +81,14 @@ $tokens = $jwt->issueTokens('10001', ['scopes' => ['read','write'], 'client' => 
 
 或（静态）：
 ```php
-use Zh\Jwt\JwtToken;
+use Zhiisland\WebmanJwtLc5\JwtToken;
 
 $tokens = JwtToken::generateToken([
   'id' => 2022,
   'name' => 'Alice',
-  'client' => Zh\Jwt\JwtToken::TOKEN_CLIENT_MOBILE,
+  'client' => Zhiisland\WebmanJwtLc5\JwtToken::TOKEN_CLIENT_MOBILE,
   'access_exp' => 7200,
-], 'frontend', Zh\Jwt\JwtToken::TOKEN_CLIENT_MOBILE, 'iphone-15-pro');
+], 'frontend', Zhiisland\WebmanJwtLc5\JwtToken::TOKEN_CLIENT_MOBILE, 'iphone-15-pro');
 ```
 
 4) 保护路由
@@ -106,7 +106,7 @@ Webman 会自动加载 `config/plugin/zh/jwt/app.php`。
 
 克隆到现有项目时请拷贝：
 - `config/plugin/zh/jwt/app.php`
-- 源码位于 `src/`，命名空间 `Zh\Jwt\*`
+- 源码位于 `src/`，命名空间 `Zhiisland\WebmanJwtLc5\*`
 
 ---
 
@@ -151,27 +151,27 @@ Webman 会自动加载 `config/plugin/zh/jwt/app.php`。
 ### 刷新与登出
 ```php
 // 主动刷新（手动传 refresh）
-(new Zh\Jwt\JwtManager('frontend'))->refresh($refreshToken);
+(new Zhiisland\WebmanJwtLc5\JwtManager('frontend'))->refresh($refreshToken);
 
 // 自动从请求提取 refresh（详见下节“无需显式传 token”）
-$new = Zh\Jwt\JwtToken::refreshToken();
+$new = Zhiisland\WebmanJwtLc5\JwtToken::refreshToken();
 
 // 登出（拉黑当前 access），并按终端清理
-Zh\Jwt\JwtToken::clear('frontend', Zh\Jwt\JwtToken::TOKEN_CLIENT_WEB);
+Zhiisland\WebmanJwtLc5\JwtToken::clear('frontend', Zhiisland\WebmanJwtLc5\JwtToken::TOKEN_CLIENT_WEB);
 ```
 
 ### 获取当前用户与 Claims
 ```php
-$uid    = Zh\Jwt\JwtToken::getCurrentId();
-$claims = Zh\Jwt\JwtToken::getExtend();
-$user   = Zh\Jwt\JwtToken::getUser(); // 需配置 user_resolver
+$uid    = Zhiisland\WebmanJwtLc5\JwtToken::getCurrentId();
+$claims = Zhiisland\WebmanJwtLc5\JwtToken::getExtend();
+$user   = Zhiisland\WebmanJwtLc5\JwtToken::getUser(); // 需配置 user_resolver
 ```
 
 ### 链式与静态 API
 
 - 链式
 ```php
-use Zh\Jwt\Jwt;
+use Zhiisland\WebmanJwtLc5\Jwt;
 
 $tokens = Jwt::make('frontend')
   ->client('WEB')
@@ -188,7 +188,7 @@ Jwt::make('frontend')->invalidate();
 
 - 静态
 ```php
-use Zh\Jwt\Jwt;
+use Zhiisland\WebmanJwtLc5\Jwt;
 
 $tokens = Jwt::issue('frontend', '10001', ['client' => 'WEB'], 'web-1');
 $token  = Jwt::verify('frontend', $jwt);
@@ -207,7 +207,7 @@ Jwt::invalidateFromRequest('frontend');
 - JwtFluent/Jwt 的 verifyAccess/refresh/invalidate 在未传参时自动提取
 - 工具类（借鉴 meta\utils\JWTUtil）
 ```php
-use Zh\Jwt\Utils\JWTUtil;
+use Zhiisland\WebmanJwtLc5\Utils\JWTUtil;
 
 $claims = JWTUtil::getParserData('frontend'); // 解析 claims（不做签名/时间校验）
 $plain  = JWTUtil::verify('frontend');        // 验证并返回 Plain Token
@@ -262,28 +262,28 @@ Route::get('/.well-known/jwks.json', [\Zhiisland\WebmanJwtLc5\Controller\JwksCon
 ## 扩展点
 
 - Claims Provider：发放时动态补充 claims
-    - 实现 `Zh\Jwt\Contracts\ClaimsProviderInterface`
+    - 实现 `Zhiisland\WebmanJwtLc5\Contracts\ClaimsProviderInterface`
     - 在配置 `claims_providers` 中注册类名
 - User Resolver：按 sub 获取用户对象/数组
-    - 配置 `user_resolver` 为匿名函数或实现 `Zh\Jwt\Contracts\UserResolverInterface` 的类
+    - 配置 `user_resolver` 为匿名函数或实现 `Zhiisland\WebmanJwtLc5\Contracts\UserResolverInterface` 的类
 - Token 响应格式化
-    - 实现 `Zh\Jwt\Contracts\TokenResponseFormatterInterface`
+    - 实现 `Zhiisland\WebmanJwtLc5\Contracts\TokenResponseFormatterInterface`
     - 配置 `response_formatter` 替换默认返回结构
 - 存储替换
-    - 实现 `Zh\Jwt\Contracts\JwtStorageInterface` 并注入到 `JwtManager` 构造
+    - 实现 `Zhiisland\WebmanJwtLc5\Contracts\JwtStorageInterface` 并注入到 `JwtManager` 构造
 
 ---
 
 ## 异常一览与错误码映射
 
-- Zh\Jwt\Exceptions\ConfigException
-- Zh\Jwt\Exceptions\TokenNotProvidedException
-- Zh\Jwt\Exceptions\TokenInvalidException
-- Zh\Jwt\Exceptions\TokenExpiredException
-- Zh\Jwt\Exceptions\TokenBlacklistedException
-- Zh\Jwt\Exceptions\RefreshTokenAlreadyUsedException
-- Zh\Jwt\Exceptions\ScopeViolationException
-- Zh\Jwt\Exceptions\GuardMismatchException
+- Zhiisland\WebmanJwtLc5\Exceptions\ConfigException
+- Zhiisland\WebmanJwtLc5\Exceptions\TokenNotProvidedException
+- Zhiisland\WebmanJwtLc5\Exceptions\TokenInvalidException
+- Zhiisland\WebmanJwtLc5\Exceptions\TokenExpiredException
+- Zhiisland\WebmanJwtLc5\Exceptions\TokenBlacklistedException
+- Zhiisland\WebmanJwtLc5\Exceptions\RefreshTokenAlreadyUsedException
+- Zhiisland\WebmanJwtLc5\Exceptions\ScopeViolationException
+- Zhiisland\WebmanJwtLc5\Exceptions\GuardMismatchException
 
 建议在全局异常处理中读取 `config('plugin.zh.jwt.error_codes')`，将异常映射为统一错误码与响应体。
 
