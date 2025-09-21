@@ -18,7 +18,7 @@ class SlidingRefresh
 
     public function process(Request $request, callable $next): Response
     {
-        $guard = $this->guard ?: (string) config('plugin.zh.jwt.default_guard', 'frontend');
+        $guard = $this->guard ?: (string) config('plugin.zhiisland.webman-jwt-lc5.app.default_guard', 'frontend');
         $sliding = Config::get('sliding', []);
         if (empty($sliding['enable'])) {
             return $next($request);

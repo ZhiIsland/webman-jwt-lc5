@@ -9,6 +9,7 @@ class Install
      * @var array
      */
     protected static $pathRelation = array (
+  'config/plugin/zhiisland/webman-jwt-lc5' => 'config/plugin/zhiisland/webman-jwt-lc5',
 );
 
     /**

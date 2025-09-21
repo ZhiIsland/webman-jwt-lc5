@@ -21,7 +21,7 @@ class Authenticate
 
     public function process(Request $request, callable $next): Response
     {
-        $guard = $this->guard ?: (string) config('plugin.zh.jwt.default_guard', 'frontend');
+        $guard = $this->guard ?: (string) config('plugin.zhiisland.webman-jwt-lc5.app.default_guard', 'frontend');
         $tokenStr = TokenExtractor::fromRequest($request, $guard);
 
         if (!$tokenStr) {

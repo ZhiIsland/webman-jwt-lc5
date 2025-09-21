@@ -5,7 +5,7 @@ class Config
 {
     public static function get(string $key = '', $default = null)
     {
-        $prefix = 'plugin.zh.jwt';
+        $prefix = 'plugin.zhiisland.webman-jwt-lc5.app';
         if ($key === '' || $key === null) {
             return config($prefix, $default);
         }

@@ -56,7 +56,7 @@
 
 1) 安装
 ```bash
-composer require zhaugielauiita/webman-jwt-lc5:^0.1.0
+composer require zhiisland/webman-jwt-lc5
 ```
 
 2) 配置密钥与 guard（编辑 config/plugin/zh/jwt/app.php）
