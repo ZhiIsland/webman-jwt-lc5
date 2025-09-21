@@ -93,9 +93,9 @@ $tokens = JwtToken::generateToken([
 
 4) 保护路由
 ```php
-->middleware([\Zh\Jwt\Middleware\Authenticate::class], ['guard' => 'frontend'])
+->middleware([\Zhiisland\WebmanJwtLc5\Middleware\Authenticate::class], ['guard' => 'frontend'])
 // 可选：Authenticate 之后加滑动续期
-->middleware([\Zh\Jwt\Middleware\SlidingRefresh::class], ['guard' => 'frontend'])
+->middleware([\Zhiisland\WebmanJwtLc5\Middleware\SlidingRefresh::class], ['guard' => 'frontend'])
 ```
 
 ---
@@ -144,8 +144,8 @@ Webman 会自动加载 `config/plugin/zh/jwt/app.php`。
 
 示例：
 ```php
-->middleware([\Zh\Jwt\Middleware\Authenticate::class], ['guard' => 'frontend'])
-->middleware([\Zh\Jwt\Middleware\SlidingRefresh::class], ['guard' => 'frontend'])
+->middleware([\Zhiisland\WebmanJwtLc5\Middleware\Authenticate::class], ['guard' => 'frontend'])
+->middleware([\Zhiisland\WebmanJwtLc5\Middleware\SlidingRefresh::class], ['guard' => 'frontend'])
 ```
 
 ### 刷新与登出
@@ -230,7 +230,7 @@ JWTUtil::invalidate('frontend');              // 拉黑当前 access
 路由：
 ```php
 use Webman\Route;
-Route::get('/.well-known/jwks.json', [\Zh\Jwt\Controller\JwksController::class, 'index']);
+Route::get('/.well-known/jwks.json', [\Zhiisland\WebmanJwtLc5\Controller\JwksController::class, 'index']);
 ```
 
 要求 guard 配置有 `kid` 与 `public_key`。
