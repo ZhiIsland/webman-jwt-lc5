@@ -1,10 +1,10 @@
 <?php
-namespace Zh\Jwt\Fluent;
+namespace Zhiisland\WebmanJwtLc5\Fluent;
 
 use Lcobucci\JWT\Token\Plain;
-use Zh\Jwt\JwtManager;
-use Zh\Jwt\Support\Config;
-use Zh\Jwt\TokenExtractor;
+use Zhiisland\WebmanJwtLc5\JwtManager;
+use Zhiisland\WebmanJwtLc5\Support\Config;
+use Zhiisland\WebmanJwtLc5\TokenExtractor;
 
 /**
  * 链式操作的 JWT 构建器与执行器
@@ -94,7 +94,7 @@ class JwtFluent
     {
         $jwtStr = $jwt ?? $this->accessTokenString ?? TokenExtractor::fromCurrentRequest($this->guard);
         if (!$jwtStr) {
-            throw new \Zh\Jwt\Exceptions\TokenNotProvidedException('Token not provided');
+            throw new \Zhiisland\WebmanJwtLc5\Exceptions\TokenNotProvidedException('Token not provided');
         }
         return (new JwtManager($this->guard))->verifyAccess($jwtStr);
     }
@@ -112,7 +112,7 @@ class JwtFluent
     {
         $jwtStr = $jwt ?? $this->accessTokenString ?? TokenExtractor::fromCurrentRequest($this->guard);
         if (!$jwtStr) {
-            throw new \Zh\Jwt\Exceptions\TokenNotProvidedException('Token not provided');
+            throw new \Zhiisland\WebmanJwtLc5\Exceptions\TokenNotProvidedException('Token not provided');
         }
         (new JwtManager($this->guard))->invalidate($jwtStr);
     }

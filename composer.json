@@ -1,7 +1,7 @@
 {
   "name": "zhiisland/webman-jwt-lc5",
   "description": "Webman JWT plugin using lcobucci/jwt v5 with multi-guard, SSO, blacklist, token rotation, and extensibility.",
-  "type": "webman-plugin",
+  "type": "library",
   "license": "MIT",
   "require": {
     "php": "^8.3",
@@ -14,7 +14,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Zh\\Jwt\\": "src/"
+      "Zhiisland\\WebmanJwtLc5\\": "src/"
     }
   }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Zh\Jwt\Contracts;
+namespace Zhiisland\WebmanJwtLc5\Contracts;
 
 interface ClaimsProviderInterface
 {

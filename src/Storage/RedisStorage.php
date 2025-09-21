@@ -1,8 +1,8 @@
 <?php
-namespace Zh\Jwt\Storage;
+namespace Zhiisland\WebmanJwtLc5\Storage;
 
-use Zh\Jwt\Contracts\JwtStorageInterface;
-use Zh\Jwt\Support\Config;
+use Zhiisland\WebmanJwtLc5\Contracts\JwtStorageInterface;
+use Zhiisland\WebmanJwtLc5\Support\Config;
 use support\Redis;
 
 class RedisStorage implements JwtStorageInterface

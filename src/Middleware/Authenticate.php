@@ -1,12 +1,12 @@
 <?php
-namespace Zh\Jwt\Middleware;
+namespace Zhiisland\WebmanJwtLc5\Middleware;
 
 use Webman\Http\Request;
 use Webman\Http\Response;
-use Zh\Jwt\JwtManager;
-use Zh\Jwt\TokenExtractor;
-use Zh\Jwt\Exceptions\TokenNotProvidedException;
-use Zh\Jwt\Exceptions\ScopeViolationException;
+use Zhiisland\WebmanJwtLc5\JwtManager;
+use Zhiisland\WebmanJwtLc5\TokenExtractor;
+use Zhiisland\WebmanJwtLc5\Exceptions\TokenNotProvidedException;
+use Zhiisland\WebmanJwtLc5\Exceptions\ScopeViolationException;
 
 class Authenticate
 {

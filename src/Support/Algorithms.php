@@ -1,5 +1,5 @@
 <?php
-namespace Zh\Jwt\Support;
+namespace Zhiisland\WebmanJwtLc5\Support;
 
 use Lcobucci\JWT\Signer;
 use Lcobucci\JWT\Signer\Hmac\Sha256 as HS256;

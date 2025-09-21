@@ -1,11 +1,11 @@
 <?php
-namespace Zh\Jwt\Middleware;
+namespace Zhiisland\WebmanJwtLc5\Middleware;
 
 use Webman\Http\Request;
 use Webman\Http\Response;
-use Zh\Jwt\JwtManager;
-use Zh\Jwt\TokenExtractor;
-use Zh\Jwt\Support\Config;
+use Zhiisland\WebmanJwtLc5\JwtManager;
+use Zhiisland\WebmanJwtLc5\TokenExtractor;
+use Zhiisland\WebmanJwtLc5\Support\Config;
 
 class SlidingRefresh
 {

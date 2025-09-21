@@ -1,5 +1,5 @@
 <?php
-namespace Zh\Jwt;
+namespace Zhiisland\WebmanJwtLc5;
 
 use DateInterval;
 use DateTimeImmutable;
@@ -9,18 +9,18 @@ use Lcobucci\JWT\Token\Plain as PlainToken;
 use Lcobucci\JWT\Validation\Constraint\IssuedBy;
 use Lcobucci\JWT\Validation\Constraint\PermittedFor;
 use Lcobucci\JWT\Validation\Constraint\SignedWith;
-use Zh\Jwt\Contracts\ClaimsProviderInterface;
-use Zh\Jwt\Contracts\JwtStorageInterface;
-use Zh\Jwt\Contracts\TokenResponseFormatterInterface;
-use Zh\Jwt\Exceptions\GuardMismatchException;
-use Zh\Jwt\Exceptions\JwtException;
-use Zh\Jwt\Exceptions\RefreshTokenAlreadyUsedException;
-use Zh\Jwt\Exceptions\TokenBlacklistedException;
-use Zh\Jwt\Exceptions\TokenExpiredException;
-use Zh\Jwt\Exceptions\TokenInvalidException;
-use Zh\Jwt\Support\Config;
-use Zh\Jwt\Support\DefaultTokenResponseFormatter;
-use Zh\Jwt\Storage\RedisStorage;
+use Zhiisland\WebmanJwtLc5\Contracts\ClaimsProviderInterface;
+use Zhiisland\WebmanJwtLc5\Contracts\JwtStorageInterface;
+use Zhiisland\WebmanJwtLc5\Contracts\TokenResponseFormatterInterface;
+use Zhiisland\WebmanJwtLc5\Exceptions\GuardMismatchException;
+use Zhiisland\WebmanJwtLc5\Exceptions\JwtException;
+use Zhiisland\WebmanJwtLc5\Exceptions\RefreshTokenAlreadyUsedException;
+use Zhiisland\WebmanJwtLc5\Exceptions\TokenBlacklistedException;
+use Zhiisland\WebmanJwtLc5\Exceptions\TokenExpiredException;
+use Zhiisland\WebmanJwtLc5\Exceptions\TokenInvalidException;
+use Zhiisland\WebmanJwtLc5\Support\Config;
+use Zhiisland\WebmanJwtLc5\Support\DefaultTokenResponseFormatter;
+use Zhiisland\WebmanJwtLc5\Storage\RedisStorage;
 
 class JwtManager
 {
@@ -353,7 +353,7 @@ class JwtManager
 
         if ($rotate) {
             if ($this->storage->isRefreshUsed($guard, $refreshJti)) {
-                throw new \Zh\Jwt\Exceptions\RefreshTokenAlreadyUsedException('Refresh token already used');
+                throw new \Zhiisland\WebmanJwtLc5\Exceptions\RefreshTokenAlreadyUsedException('Refresh token already used');
             }
             $ttl = max(1, $this->expLeft($token) + $reuseInterval);
             $this->storage->markRefreshUsed($guard, $refreshJti, $ttl);

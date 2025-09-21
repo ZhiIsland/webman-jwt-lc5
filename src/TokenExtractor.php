@@ -1,8 +1,8 @@
 <?php
-namespace Zh\Jwt;
+namespace Zhiisland\WebmanJwtLc5;
 
 use Webman\Http\Request;
-use Zh\Jwt\Support\Config;
+use Zhiisland\WebmanJwtLc5\Support\Config;
 
 class TokenExtractor
 {

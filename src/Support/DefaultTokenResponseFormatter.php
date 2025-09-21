@@ -1,7 +1,7 @@
 <?php
-namespace Zh\Jwt\Support;
+namespace Zhiisland\WebmanJwtLc5\Support;
 
-use Zh\Jwt\Contracts\TokenResponseFormatterInterface;
+use Zhiisland\WebmanJwtLc5\Contracts\TokenResponseFormatterInterface;
 
 class DefaultTokenResponseFormatter implements TokenResponseFormatterInterface
 {

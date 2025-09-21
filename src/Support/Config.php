@@ -1,5 +1,5 @@
 <?php
-namespace Zh\Jwt\Support;
+namespace Zhiisland\WebmanJwtLc5\Support;
 
 class Config
 {

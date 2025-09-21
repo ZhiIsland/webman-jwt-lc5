@@ -1,10 +1,10 @@
 <?php
-namespace Zh\Jwt;
+namespace Zhiisland\WebmanJwtLc5;
 
 use Lcobucci\JWT\Token\Plain;
 use Webman\Http\Request;
-use Zh\Jwt\Fluent\JwtFluent;
-use Zh\Jwt\Support\Config;
+use Zhiisland\WebmanJwtLc5\Fluent\JwtFluent;
+use Zhiisland\WebmanJwtLc5\Support\Config;
 
 class Jwt
 {
@@ -44,7 +44,7 @@ class Jwt
     {
         $g = $guard ?: (string) Config::get('default_guard', 'frontend');
         $jwt = TokenExtractor::fromCurrentRequest($g);
-        if (!$jwt) throw new \Zh\Jwt\Exceptions\TokenNotProvidedException('Token not provided');
+        if (!$jwt) throw new \Zhiisland\WebmanJwtLc5\Exceptions\TokenNotProvidedException('Token not provided');
         return (new JwtManager($g))->verifyAccess($jwt);
     }
 
@@ -60,7 +60,7 @@ class Jwt
     {
         $g = $guard ?: (string) Config::get('default_guard', 'frontend');
         $jwt = TokenExtractor::fromCurrentRequest($g);
-        if (!$jwt) throw new \Zh\Jwt\Exceptions\TokenNotProvidedException('Token not provided');
+        if (!$jwt) throw new \Zhiisland\WebmanJwtLc5\Exceptions\TokenNotProvidedException('Token not provided');
         (new JwtManager($g))->invalidate($jwt);
     }
 
@@ -80,9 +80,9 @@ class Jwt
             public function verify(): Plain
             {
                 if (!$this->access) {
-                    throw new \Zh\Jwt\Exceptions\TokenNotProvidedException('Token not provided');
+                    throw new \Zhiisland\WebmanJwtLc5\Exceptions\TokenNotProvidedException('Token not provided');
                 }
-                return (new \Zh\Jwt\JwtManager($this->guard))->verifyAccess($this->access);
+                return (new \Zhiisland\WebmanJwtLc5\JwtManager($this->guard))->verifyAccess($this->access);
             }
 
             public function refresh(): array
@@ -90,7 +90,7 @@ class Jwt
                 if (!$this->refresh) {
                     throw new \RuntimeException('Refresh token not provided');
                 }
-                return (new \Zh\Jwt\JwtManager($this->guard))->refresh($this->refresh);
+                return (new \Zhiisland\WebmanJwtLc5\JwtManager($this->guard))->refresh($this->refresh);
             }
 
             public function tokens(): array

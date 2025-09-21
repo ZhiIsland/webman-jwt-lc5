@@ -1,4 +1,4 @@
 <?php
-namespace Zh\Jwt\Exceptions;
+namespace Zhiisland\WebmanJwtLc5\Exceptions;
 
 class TokenExpiredException extends JwtException {}

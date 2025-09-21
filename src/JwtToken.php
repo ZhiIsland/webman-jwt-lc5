@@ -1,10 +1,10 @@
 <?php
-namespace Zh\Jwt;
+namespace Zhiisland\WebmanJwtLc5;
 
 use Webman\Container;
 use Webman\Http\Request;
-use Zh\Jwt\Support\Config;
-use Zh\Jwt\Contracts\UserResolverInterface;
+use Zhiisland\WebmanJwtLc5\Support\Config;
+use Zhiisland\WebmanJwtLc5\Contracts\UserResolverInterface;
 
 class JwtToken
 {

@@ -1,9 +1,9 @@
 <?php
-namespace Zh\Jwt\Middleware;
+namespace Zhiisland\WebmanJwtLc5\Middleware;
 
 use Webman\Http\Request;
 use Webman\Http\Response;
-use Zh\Jwt\Exceptions\ScopeViolationException;
+use Zhiisland\WebmanJwtLc5\Exceptions\ScopeViolationException;
 
 class RequireScopes
 {

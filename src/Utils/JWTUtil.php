@@ -1,11 +1,11 @@
 <?php
-namespace Zh\Jwt\Utils;
+namespace Zhiisland\WebmanJwtLc5\Utils;
 
 use Lcobucci\JWT\Token\DataSet;
-use Zh\Jwt\JwtManager;
-use Zh\Jwt\Support\Config;
-use Zh\Jwt\TokenExtractor;
-use Zh\Jwt\Exceptions\TokenNotProvidedException;
+use Zhiisland\WebmanJwtLc5\JwtManager;
+use Zhiisland\WebmanJwtLc5\Support\Config;
+use Zhiisland\WebmanJwtLc5\TokenExtractor;
+use Zhiisland\WebmanJwtLc5\Exceptions\TokenNotProvidedException;
 
 /**
  * 便捷工具：参考你的 meta\utils\JWTUtil 思路，实现自动获取与解析

@@ -1,11 +1,11 @@
 <?php
-namespace Zh\Jwt;
+namespace Zhiisland\WebmanJwtLc5;
 
 use Lcobucci\JWT\Configuration;
 use Lcobucci\JWT\Signer\Key\InMemory;
-use Zh\Jwt\Support\Config;
-use Zh\Jwt\Support\Algorithms;
-use Zh\Jwt\Exceptions\ConfigException;
+use Zhiisland\WebmanJwtLc5\Support\Config;
+use Zhiisland\WebmanJwtLc5\Support\Algorithms;
+use Zhiisland\WebmanJwtLc5\Exceptions\ConfigException;
 
 class KeyManager
 {

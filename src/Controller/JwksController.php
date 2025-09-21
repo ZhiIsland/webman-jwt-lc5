@@ -1,10 +1,10 @@
 <?php
-namespace Zh\Jwt\Controller;
+namespace Zhiisland\WebmanJwtLc5\Controller;
 
 use Webman\Http\Request;
 use Webman\Http\Response;
-use Zh\Jwt\Support\Config;
-use Zh\Jwt\Support\Jwk;
+use Zhiisland\WebmanJwtLc5\Support\Config;
+use Zhiisland\WebmanJwtLc5\Support\Jwk;
 
 class JwksController
 {

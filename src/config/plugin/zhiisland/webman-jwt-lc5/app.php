@@ -64,17 +64,17 @@ return [
         // \App\Jwt\Claims\FillUserRoles::class,
     ],
     // - Token 响应格式化器
-    'response_formatter' => null, // \Zh\Jwt\Contracts\TokenResponseFormatterInterface::class
+    'response_formatter' => null, // \Zhiisland\WebmanJwtLc5\Contracts\TokenResponseFormatterInterface::class
 
     // 异常 => 错误码映射（建议在全局异常处理中使用）
     'error_codes' => [
-        'Zh\Jwt\Exceptions\TokenNotProvidedException' => 401010,
-        'Zh\Jwt\Exceptions\TokenInvalidException' => 401011,
-        'Zh\Jwt\Exceptions\TokenExpiredException' => 401013,
-        'Zh\Jwt\Exceptions\TokenBlacklistedException' => 401016,
-        'Zh\Jwt\Exceptions\RefreshTokenAlreadyUsedException' => 401026,
-        'Zh\Jwt\Exceptions\ScopeViolationException' => 403001,
-        'Zh\Jwt\Exceptions\GuardMismatchException' => 401017,
+        'Zhiisland\WebmanJwtLc5\Exceptions\TokenNotProvidedException' => 401010,
+        'Zhiisland\WebmanJwtLc5\Exceptions\TokenInvalidException' => 401011,
+        'Zhiisland\WebmanJwtLc5\Exceptions\TokenExpiredException' => 401013,
+        'Zhiisland\WebmanJwtLc5\Exceptions\TokenBlacklistedException' => 401016,
+        'Zhiisland\WebmanJwtLc5\Exceptions\RefreshTokenAlreadyUsedException' => 401026,
+        'Zhiisland\WebmanJwtLc5\Exceptions\ScopeViolationException' => 403001,
+        'Zhiisland\WebmanJwtLc5\Exceptions\GuardMismatchException' => 401017,
     ],
 
     'redis' => [
