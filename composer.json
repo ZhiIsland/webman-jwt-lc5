@@ -1,0 +1,20 @@
+{
+  "name": "zhaugielauiita/webman-jwt-lc5",
+  "description": "Webman JWT plugin using lcobucci/jwt v5 with multi-guard, SSO, blacklist, token rotation, and extensibility.",
+  "type": "webman-plugin",
+  "license": "MIT",
+  "require": {
+    "php": "^8.3",
+    "workerman/webman-framework": "^2.0",
+    "lcobucci/jwt": "^5.0",
+    "lcobucci/clock": "^3.0",
+    "webman/redis": "^2.1",
+    "illuminate/events": "^12.30",
+    "ext-openssl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Zh\\Jwt\\": "src/"
+    }
+  }
+}
